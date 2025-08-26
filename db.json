@@ -1,0 +1,229 @@
+{
+  "posts" : [
+  {
+    "id": 1,
+    "title": "First post",
+    "body": "Hello world, this is my very first post on this platform. I wanted to share my excitement about starting this journey into web development. At first it feels overwhelming, but with consistent practice I’m confident it will all make sense. This post marks the beginning of many more to come.",
+    "author": { "id": 101, "name": "Alex" },
+    "date": "2025-08-20T09:15:30Z",
+    "tags": ["learning", "redux"],
+    "likes": 10
+  },
+  {
+    "id": 2,
+    "title": "React Journey",
+    "body": "Started learning React today, and honestly it feels amazing. JSX looked strange at first, but once I wrote my first functional component it started to click. My plan is to build small projects like a to-do app, a weather app, and then eventually move to something bigger. Consistency will be the key to mastering React.",
+    "author": { "id": 102, "name": "Abhi" },
+    "date": "2025-08-21T14:22:10Z",
+    "tags": ["react", "frontend", "javascript"],
+    "likes": 22
+  },
+  {
+    "id": 3,
+    "title": "TailwindCSS Fun",
+    "body": "TailwindCSS is such a game changer for me. Instead of switching back and forth between CSS files and my JSX code, I can apply classes directly. Utility-first styling felt confusing initially, but now I see how fast it makes development. I built a card component in minutes and it looked clean right away.",
+    "author": { "id": 103, "name": "Marlar" },
+    "date": "2025-08-22T18:05:00Z",
+    "tags": ["tailwind", "css", "design"],
+    "likes": 15
+  },
+  {
+    "id": 4,
+    "title": "API with Node.js",
+    "body": "Today I created my first backend API using Node.js and Express. I was surprised at how little code it took to set up routes, handle requests, and return JSON data. My next step is connecting it with MongoDB so I can store data permanently. It feels great to see both frontend and backend coming together.",
+    "author": { "id": 104, "name": "Sara" },
+    "date": "2025-08-23T10:40:45Z",
+    "tags": ["nodejs", "api", "backend"],
+    "likes": 30
+  },
+  {
+    "id": 5,
+    "title": "Debugging Tips",
+    "body": "Debugging used to mean endless console.log statements for me, but then I discovered the power of VS Code’s built-in debugger. Setting breakpoints, inspecting variables, and stepping through code line by line has saved me hours. If you’re still spamming console.log, trust me, try the debugger instead.",
+    "author": { "id": 105, "name": "John" },
+    "date": "2025-08-24T20:55:12Z",
+    "tags": ["vscode", "debugging", "productivity"],
+    "likes": 8
+  },
+  {
+    "id": 6,
+    "title": "Final Project Idea",
+    "body": "I’ve been brainstorming my final project idea for weeks and finally decided on building a mini-blog application. It will use React for the frontend, Redux for state management, and Node.js + MongoDB for the backend. The goal is to apply everything I’ve learned so far into one full-stack application.",
+    "author": { "id": 102, "name": "Abhi" },
+    "date": "2025-08-25T12:34:56Z",
+    "tags": ["project", "react", "redux"],
+    "likes": 45
+  },
+  {
+    "id": 7,
+    "title": "Why I Love Open Source",
+    "body": "Open source software has completely changed the way I learn and build projects. By reading other people’s code, I not only understand best practices but also discover creative solutions I never would have thought of. Contributing small fixes feels rewarding, and one day I want to maintain my own project.",
+    "author": { "id": 106, "name": "Emily" },
+    "date": "2025-08-25T15:20:12Z",
+    "tags": ["opensource", "community", "learning"],
+    "likes": 50
+  },
+  {
+    "id": 8,
+    "title": "Git and GitHub Basics",
+    "body": "Version control is something I ignored for too long. Learning Git was a little intimidating at first, but now I can’t imagine working without it. Branching, committing, and merging changes gives me so much confidence when experimenting. GitHub also makes collaboration much easier with pull requests and issues.",
+    "author": { "id": 101, "name": "Alex" },
+    "date": "2025-08-25T18:10:05Z",
+    "tags": ["git", "github", "collaboration"],
+    "likes": 27
+  },
+  {
+    "id": 9,
+    "title": "Breaking Down Redux",
+    "body": "Redux felt like magic when I first encountered it. But once I broke it down into actions, reducers, and the store, it started making sense. It’s a lot of boilerplate code, but for larger projects the benefits are clear. State becomes predictable and easy to debug. I’m planning to use Redux in my upcoming blog app project.",
+    "author": { "id": 102, "name": "Abhi" },
+    "date": "2025-08-25T20:00:00Z",
+    "tags": ["redux", "state-management", "react"],
+    "likes": 39
+  },
+  {
+    "id": 10,
+    "title": "UI/UX Matters",
+    "body": "As a developer, I used to underestimate design. But after using apps with great user experience, I realized how much it matters. A clean layout, good spacing, and intuitive navigation can make or break an app. TailwindCSS plus some design inspiration from Dribbble and Behance has helped me create much better UIs.",
+    "author": { "id": 103, "name": "Marlar" },
+    "date": "2025-08-25T22:15:30Z",
+    "tags": ["ui", "ux", "design"],
+    "likes": 33
+  },
+  {
+    "id": 11,
+    "title": "MongoDB First Impressions",
+    "body": "I finally connected my Node.js API to MongoDB and it feels powerful to store and fetch data. Collections and documents took some time to understand compared to SQL tables, but it makes sense now. I plan to implement authentication next using JWT tokens.",
+    "author": { "id": 104, "name": "Sara" },
+    "date": "2025-08-26T08:05:10Z",
+    "tags": ["mongodb", "database", "backend"],
+    "likes": 18
+  },
+  {
+    "id": 12,
+    "title": "Learning Async/Await",
+    "body": "Callbacks used to confuse me, promises were better, but async/await feels the cleanest. I rewrote some API calls using async/await and the code became way more readable. Error handling with try/catch is also much easier compared to chaining promises.",
+    "author": { "id": 105, "name": "John" },
+    "date": "2025-08-26T09:10:00Z",
+    "tags": ["javascript", "async", "await"],
+    "likes": 21
+  },
+  {
+    "id": 13,
+    "title": "CSS Grid vs Flexbox",
+    "body": "Both Grid and Flexbox are amazing tools for layout. Grid is best for two-dimensional layouts, while Flexbox shines in one-dimensional alignment. I built a responsive dashboard using a mix of both and finally understood when to use each one.",
+    "author": { "id": 103, "name": "Marlar" },
+    "date": "2025-08-26T11:22:45Z",
+    "tags": ["css", "grid", "flexbox"],
+    "likes": 29
+  },
+  {
+    "id": 14,
+    "title": "State Management Debate",
+    "body": "I keep reading discussions about whether Redux is overkill for small apps. Personally, I think context API works great for small to medium apps, but Redux becomes necessary once you have complex state and multiple slices. My blog project will definitely need Redux.",
+    "author": { "id": 102, "name": "Abhi" },
+    "date": "2025-08-26T13:40:12Z",
+    "tags": ["redux", "context", "state"],
+    "likes": 41
+  },
+  {
+    "id": 15,
+    "title": "Deploying My First App",
+    "body": "Today I deployed my first React app using Netlify. The process was surprisingly easy: just push to GitHub and link the repo. Seeing my project live on the internet felt like a huge milestone. Next, I want to try deploying a full-stack app with Vercel or Render.",
+    "author": { "id": 106, "name": "Emily" },
+    "date": "2025-08-26T15:00:00Z",
+    "tags": ["deployment", "netlify", "hosting"],
+    "likes": 36
+  },
+  {
+    "id": 16,
+    "title": "Docker for Beginners",
+    "body": "I heard a lot about Docker but never used it. Today I tried creating a simple container for my Node.js API. It felt strange at first, but I see the value in having consistent environments. No more 'it works on my machine' excuses.",
+    "author": { "id": 101, "name": "Alex" },
+    "date": "2025-08-26T16:45:30Z",
+    "tags": ["docker", "devops", "backend"],
+    "likes": 24
+  },
+  {
+    "id": 17,
+    "title": "Learning TypeScript",
+    "body": "I finally decided to give TypeScript a try, and wow, the type safety is amazing. It caught so many little mistakes before I even ran the code. The learning curve is real, but I know this will pay off in larger projects.",
+    "author": { "id": 102, "name": "Abhi" },
+    "date": "2025-08-26T18:10:05Z",
+    "tags": ["typescript", "javascript", "frontend"],
+    "likes": 38
+  },
+  {
+    "id": 18,
+    "title": "Responsive Design Lessons",
+    "body": "I used to test my sites only on desktop, but when I opened one on my phone it was broken. That’s when I learned the importance of responsive design. TailwindCSS breakpoints make this super easy. Now I always check mobile-first.",
+    "author": { "id": 103, "name": "Marlar" },
+    "date": "2025-08-26T19:30:15Z",
+    "tags": ["responsive", "tailwind", "design"],
+    "likes": 26
+  },
+  {
+    "id": 19,
+    "title": "Learning About REST vs GraphQL",
+    "body": "I came across GraphQL while researching APIs. REST is simple and widely used, but GraphQL seems powerful for fetching exactly what you need. I built a small test project with Apollo Client and really liked the flexibility.",
+    "author": { "id": 104, "name": "Sara" },
+    "date": "2025-08-26T20:40:00Z",
+    "tags": ["graphql", "rest", "api"],
+    "likes": 32
+  },
+  {
+    "id": 20,
+    "title": "Daily Coding Habits",
+    "body": "One of the biggest lessons I’ve learned is consistency beats intensity. Coding two hours every day is better than grinding twelve hours once a week. Small progress compounds over time, and I feel more confident with every day I practice.",
+    "author": { "id": 105, "name": "John" },
+    "date": "2025-08-26T21:55:45Z",
+    "tags": ["habits", "learning", "productivity"],
+    "likes": 44
+  },
+  {
+    "id": 21,
+    "title": "Exploring Next.js",
+    "body": "Today I explored Next.js and I’m blown away by the server-side rendering features. The routing system is also much cleaner compared to React Router. I plan to rebuild my portfolio site with Next.js soon.",
+    "author": { "id": 106, "name": "Emily" },
+    "date": "2025-08-27T08:00:00Z",
+    "tags": ["nextjs", "react", "ssr"],
+    "likes": 29
+  },
+  {
+    "id": 22,
+    "title": "Testing with Jest",
+    "body": "I started learning Jest to test my React components. At first, writing tests felt like extra work, but I quickly realized it saves time when refactoring. I now aim to cover at least the core parts of my apps with unit tests.",
+    "author": { "id": 101, "name": "Alex" },
+    "date": "2025-08-27T09:30:15Z",
+    "tags": ["testing", "jest", "react"],
+    "likes": 23
+  },
+  {
+    "id": 23,
+    "title": "Authentication with JWT",
+    "body": "I implemented JWT-based authentication in my Node.js API today. It felt great to finally secure my routes and test login/logout flows. I still need to work on refresh tokens and password hashing, but this is a big step.",
+    "author": { "id": 104, "name": "Sara" },
+    "date": "2025-08-27T10:45:55Z",
+    "tags": ["auth", "jwt", "nodejs"],
+    "likes": 40
+  },
+  {
+    "id": 24,
+    "title": "Improving Code Readability",
+    "body": "I’ve been focusing on writing cleaner code. Adding comments where needed, naming variables properly, and splitting logic into smaller functions really makes a difference. Reading my own code a week later no longer feels like a nightmare.",
+    "author": { "id": 105, "name": "John" },
+    "date": "2025-08-27T12:00:00Z",
+    "tags": ["clean-code", "readability", "best-practices"],
+    "likes": 28
+  },
+  {
+    "id": 25,
+    "title": "Dark Mode Everywhere",
+    "body": "I added dark mode to my app today, and it was so satisfying. With TailwindCSS, switching themes was as simple as toggling a class. Users really appreciate dark mode, and it also makes apps look modern instantly.",
+    "author": { "id": 103, "name": "Marlar" },
+    "date": "2025-08-27T14:15:30Z",
+    "tags": ["dark-mode", "tailwind", "ui"],
+    "likes": 37
+  }
+]
+}
