@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import variables from "../../variables";
 
 console.log(variables);
@@ -9,9 +9,9 @@ export const postApi = createApi({
     baseQuery : fetchBaseQuery({baseUrl : variables.apiUrl}),
     endpoints : (builder) => ({
         getPosts : builder.query({
-            query : ({limit = 10, page = 1}) =>  `posts?_limit=${limit}&_page=${page}`
+            query : ({limit = 10, page = 1}) => `posts?_limit=${limit}&_page=${page}`
         })
     })
 })
 
-export const {useGetPostQuery} = postApi
+export const { useGetPostsQuery } = postApi;
