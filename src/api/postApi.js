@@ -9,7 +9,17 @@ export const postApi = createApi({
     baseQuery : fetchBaseQuery({baseUrl : variables.apiUrl}),
     endpoints : (builder) => ({
         getPosts : builder.query({
-            query : ({limit = 10, page = 1}) => `posts?_limit=${limit}&_page=${page}`
+            query : ({limit = 10, page = 1}) => `posts?_limit=${limit}&_page=${page}`,
+            transformResponse: (response, meta) =>{
+                const totalItems = meta.response.headers.get("X-Total-Count");
+                const totalPages = Math.ceil(totalItems / 10);
+
+                return {
+                    posts : response,
+                    totalCount : Number(totalItems),
+                    totalPages
+                }
+            }
         })
     })
 })
