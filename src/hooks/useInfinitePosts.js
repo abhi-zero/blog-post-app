@@ -8,21 +8,19 @@ export const useInfinitePosts = (limit = 10) => {
     const dispatch = useDispatch();
 
     const { data, isFetching, isLoading, isError, error } = useGetPostsQuery({ limit, page });
-    console.log("Data outside fron effect",data)
-    
+
+    const posts = data?.posts ?? []; 
+    const totalPages = data?.totalPages ?? 0;
 
    useEffect(() => {
-      console.log("Effect triggered:", { data });
-       if (Array.isArray(data)) {
-          console.log("Dispatching mergePosts with", data.length, "posts");
-        
-      dispatch(mergePosts(data));
+       if (Array.isArray(posts)) {
+              dispatch(mergePosts(posts));
     }
-  }, [data, dispatch ]);
+  }, [posts, dispatch ]);
 
 
     const loadMore = () => setPage(prev => prev + 1);
 
 
-    return {loadMore, isFetching, isLoading, isError, error }
+    return {loadMore, isFetching, isLoading, isError,totalPages, error, page}
 };
