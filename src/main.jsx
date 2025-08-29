@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { store } from "./app/store.js";
 import { RouterProvider } from "react-router/dom";
 import { createBrowserRouter } from "react-router";
-import { Home, Explore, Write, Profile } from "./pages/index.js";
+import { Home, Explore, Write, Profile, Post } from "./pages/index.js";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +29,10 @@ const router = createBrowserRouter([
         path: "/profile",
         element: <Profile />,
       },
+      {
+        path: "/post/:id",
+        element: <Post />
+      }
     ],
   },
 ]);
