@@ -8,12 +8,14 @@ export const themeSlice = createSlice ({
     name : 'theme',
     initialState,
     reducers : {
-        toggleTheme : (state) => {
+        toggleTheme : (state,action) => {
+            console.log(action.payload);
+            
             const html = document.querySelector('html');
-            state.theme = state.theme === 'dark' ? 'light' : 'dark';
+            state.theme = action.payload ? 'dark' : 'light';
             localStorage.setItem('theme', state.theme);
-            html.style.classList.remove('dark', 'light');
-            html.style.classList.add(state.theme);
+            html.classList.remove('dark', 'light');
+            html.classList.add(state.theme);
         }
     }
 })
