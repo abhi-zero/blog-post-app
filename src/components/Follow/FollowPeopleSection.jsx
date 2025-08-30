@@ -3,6 +3,7 @@ import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { useGetFollowingQuery } from '../../api/personApi';
 import PersonImg from './PersonImg';
+import PersonImgPh from "../PlaceHolders/PersonImgPh";
 
 
 
@@ -33,8 +34,12 @@ export default function FollowPeopleSection() {
                className='text-[#0A0A0A] dark:text-white text-3xl transition-all duration-300 ease-in-out cursor-pointer'><IoIosArrowDropleftCircle /></button>
             </div>
             <div>
-              <ul className="my-scrollbar-hidden flex gap-2.5 px-[5px] md:px-[0px] max-w-[330px] sm:max-w-[450px] md:max-w-[630px] lg:max-w-[710px] overflow-auto lg:overflow-x-hidden transition-all duration-300 ease-in-out box">
-                {isLoading && <h1>loading....</h1>}
+              <ul className="my-scrollbar-hidden flex gap-2.5 px-[5px] md:px-[0px] max-w-[330px] sm:max-w-[450px] md:max-w-[630px] lg:max-w-[710px] h-[104px] overflow-auto lg:overflow-x-hidden transition-all duration-300 ease-in-out box">
+                {isLoading &&
+                  Array.from({ length: 10 }).map((_, i) => (
+                    <PersonImgPh key={i} />
+                  ))
+                }
                 {
                   isError && <h1>{error}</h1>
                 }
