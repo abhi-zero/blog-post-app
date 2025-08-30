@@ -1,9 +1,15 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import PrimaryBtn from "../buttons/PrimaryBtn";
+import { IoReader } from "react-icons/io5";
 
 export default function Card({ title, body, author, date, link, tags, likes }) {
+
+  const navigate = useNavigate();
   return (
-    <article className="group bg-[#e4e3e3] dark:bg-[#272829] shadow-bg-[#272829] hover:shadow-2xl dark:hover:shadow-xl dark:shadow-[#5f5e5e] p-[30px] rounded-xl w-[300px] md:w-[350px] lg:w-[400px] text-black dark:text-[#FFFFFF] transition-all duration-300 ease-in-out">
+    <article 
+    className="group bg-[#e4e3e3] dark:bg-[#272829] shadow-bg-[#272829] hover:shadow-2xl dark:hover:shadow-xl dark:shadow-[#5f5e5e] p-[30px] rounded-xl w-[300px] md:w-[350px] lg:w-[400px] text-black dark:text-[#FFFFFF] transition-all duration-300 ease-in-out">
       <div className="gap-2.5 grid grid-rows-auto">
        <div className="group/head relative max-w-[230px] md:max-w-[300px] lg:max-w-[330px]">
          <h1
@@ -34,9 +40,12 @@ export default function Card({ title, body, author, date, link, tags, likes }) {
           </p>
         </div>
         <div className="flex justify-between items-center">
-          <button className="bg-[#afafaf] hover:bg-[#0c0e11] hover:dark:bg-[#afafaf] dark:bg-[#0c0e11] px-[20px] py-[8px] rounded hover:dark:text-black hover:text-[#FFFFFF] transition-all duration-800 ease-in-out cursor-pointer">
-            Read
-          </button>
+          <PrimaryBtn 
+          icon={<IoReader />}
+            text={'Read'}
+            onClick={() => navigate(`/post/${link}`)}
+            style={'1'}
+          />
           <div className="flex items-center-safe gap-1.5 text-xl transition-all duration-900 ease-in-out">
             <FaHeart />
             <p className="text-sm">{likes}</p>
