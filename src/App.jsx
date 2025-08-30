@@ -1,7 +1,7 @@
 
 import {Navbar, } from './components/index'
 import { Outlet } from "react-router";
-import Test from "./components/Test";
+
 
 
 function App() {
