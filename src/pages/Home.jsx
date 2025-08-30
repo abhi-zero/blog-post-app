@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useRef } from "react";
 import { useInfinitePosts } from "../hooks/useInfinitePosts";
 import { useSelector } from "react-redux";
-import { Card } from "../components";
+import { Card, FollowPeopleSection } from "../components";
 
 export default function Home() {
   const { loadMore, isLoading, isError, error, isFetching, totalPages, page } =
@@ -39,13 +39,14 @@ export default function Home() {
   if (isError) return <h1>{error}</h1>;
 
   return (
-    <div className="flex flex-col items-center-safe gap-[50px]">
-      <h1 className="font-bold text-black dark:text-white text-4xl">Posts</h1>
-
+    <div className="flex flex-col items-center-safe gap-[50px] min-h-screen">
+      <div>
+        <FollowPeopleSection />
+      </div>
       {isLoading && <div role="status">
         <svg
           aria-hidden="true"
-          class="fill-blue-600 w-8 h-8 text-gray-200 dark:text-gray-600 animate-spin"
+          className="fill-blue-600 w-8 h-8 text-gray-200 dark:text-gray-600 animate-spin"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +60,7 @@ export default function Home() {
             fill="currentFill"
           />
         </svg>
-        <span class="sr-only">Loading...</span>
+        <span className="sr-only">Loading...</span>
       </div>}
       <ul className="gap-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 grid-flow-row px-[20px] max-w-[1300px]">
         {allPosts.map((post) => (
@@ -85,7 +86,7 @@ export default function Home() {
             <div role="status">
               <svg
                 aria-hidden="true"
-                class="fill-blue-600 w-8 h-8 text-gray-200 dark:text-gray-600 animate-spin"
+                className="w-8 h-8 text-gray-200 dark:text-gray-600 animate-spin fsue-600"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +100,7 @@ export default function Home() {
                   fill="currentFill"
                 />
               </svg>
-              <span class="sr-only">Loading...</span>
+              <span className="sr-only">Loading...</span>
             </div>
           ) : (
             "Load More"
