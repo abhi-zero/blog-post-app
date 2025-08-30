@@ -65,13 +65,17 @@ html,body{
   color: #FFFFFF;
   font-family: 'Inter';
 }
-
-.home-flowwingsec::-webkit-scrollbar{
-  width: 0px;
+.box{
+  scroll-behavior: smooth;
 }
 
-.home-flowwingsec{
-  scrollbar-width: 0;
+.my-scrollbar-hidden::-webkit-scrollbar{
+  width: 10px;
+}
+
+.my-scrollbar-hidden {
+  scrollbar-width: none;   /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge legacy */
 }
 
 
