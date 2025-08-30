@@ -14,7 +14,7 @@ useEffect(() => {
   
 },[theme])
   return (
-    <header className="top-0 right-0 left-0 fixed md:px-[30px] lg:px-[150px] md:py-[10px] w-[100vw]">
+    <header className="top-0 right-0 left-0 z-50 fixed md:px-[30px] lg:px-[150px] md:py-[10px] w-[100vw]">
       <nav className="rounded-2xl">
         <div className="flex justify-between items-center bg-[#e4e3e3] dark:bg-[#272829] px-[20px] sm:px-[50px] py-[20px] md:rounded-2xl rounded-b-2xl text-[#0A0A0A] dark:text-[#FFFFFF] transition-all duration-300 ease-in-out">
           <div>
