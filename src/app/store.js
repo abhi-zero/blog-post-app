@@ -1,17 +1,22 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { postApi } from "../api/postApi";
+import { personApi } from "../api/personApi";
 import postsReducer  from "../features/posts/postsSlice"
 import themeReducer from "../features/theme/themeSlice"
+
 
 export const store = configureStore({
     reducer: {
         [postApi.reducerPath] : postApi.reducer,
+        [personApi.reducerPath] : personApi.reducer,
         posts : postsReducer, 
         theme : themeReducer
     },
     middleware : (getDefaultMiddleware) => 
-        getDefaultMiddleware().concat(postApi.middleware),
+        getDefaultMiddleware()
+                            .concat(postApi.middleware)
+                            .concat(personApi.middleware),
     devTools: true
 })
 
