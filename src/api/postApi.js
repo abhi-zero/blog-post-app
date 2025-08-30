@@ -20,8 +20,11 @@ export const postApi = createApi({
                     totalPages
                 }
             }
+        }),
+        getPostById : builder.query({
+            query: (id) => `posts/${id}`,
         })
     })
 })
 
-export const { useGetPostsQuery } = postApi;
+export const { useGetPostsQuery, useGetPostByIdQuery} = postApi;
