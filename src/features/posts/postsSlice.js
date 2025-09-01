@@ -12,9 +12,14 @@ export const postsSlice = createSlice({
         }
       });
     },
+    removePost(state, action) {
+      const id = action.payload;
+      delete state.byId[id];
+      state.allIds = state.allIds.filter(postId => postId !== id);
+    }
   },
 });
 
-export const { mergePosts } = postsSlice.actions;
+export const { mergePosts,removePost } = postsSlice.actions;
 
 export default postsSlice.reducer;
