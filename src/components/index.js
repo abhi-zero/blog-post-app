@@ -1,7 +1,9 @@
 import Navbar from "./Header/Navbar";
-import Card from "./posts/Card";
+import Card from "./Posts/Card";
 import FollowPeopleSection from "./Follow/FollowPeopleSection";
-import PostComponent from "./posts/PostComponent"; 
+import PostComponent from "./Posts/PostComponent"; 
+import WritePost from "./Posts/WritePost";
+
 
 
 
@@ -9,5 +11,6 @@ export {
     Navbar,
     Card,
     FollowPeopleSection,
-    PostComponent
+    PostComponent,
+    WritePost
 }
