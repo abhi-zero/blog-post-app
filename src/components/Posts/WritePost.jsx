@@ -8,15 +8,14 @@ import {
   useCreatePostMutation,
   useUpdatePostMutation,
 } from "../../api/postApi";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { showNortification } from "../../features/notification/notificationSlice";
 
 export default function WritePost({ post }) {
-  const [edit, setEdit] = useState(false);
-  useEffect(()=> {
-    if (post) {
-    setEdit((prev) => !prev);
-  }
-  },[post])
+  const navgate = useNavigate();
   const id = crypto.randomUUID();
+  const dispatch = useDispatch()
   const {
     register,
     handleSubmit,
@@ -25,12 +24,18 @@ export default function WritePost({ post }) {
     formState: { errors },
   } = useForm({
     defaultValues: {
-    title: post?.title || "",
-    body: post?.body || "",
-    slug: post?.slug || "",
-    tags: post?.tags?.join(", ") || "", // if tags are array, join them
-  }
+      title: post?.title || "",
+      body: post?.body || "",
+      slug: post?.slug || "",
+      tags: post?.tags?.join(", ") || "", // if tags are array, join them
+      author : post?.author?.name || "",
+    },
   });
+  const [authorName, setAuthor] = useState('Abhi'); 
+  const theme = useSelector((state) => state.theme.theme);
+  const isDark = theme === "dark";
+  const BG = isDark ? "#272829" : "#e4e3e3"; // your desired bg
+  const FG = isDark ? "#FFFFFF" : "#111827"; // your desired text
 
   const [createPost, { isLoading: isCreating, isSuccess, isError }] =
     useCreatePostMutation();
@@ -70,22 +75,32 @@ export default function WritePost({ post }) {
   async function onSubmit(data) {
     data.date = new Date().toISOString();
     data.tags = transformToArray(data.tags);
+     data.author = {
+    id: crypto.randomUUID(),
+    name: authorName, 
+  };
     console.log(data);
-    
 
     try {
       if (post) {
         await updatePost({ id: post.id, ...data }).unwrap();
+        navgate(`/post/${post.id}`)
       } else {
         await createPost({ id, ...data }).unwrap();
+        navgate(`/post/${id}`)
       }
-      alert("post is saved");
+      dispatch(showNortification('post is saved'))
+      
     } catch (error) {
       console.log("error", error);
+      dispatch(showNortification(error))
     }
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mx-auto max-w-[700px]">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="mx-auto py-[50px] max-w-[700px]"
+    >
       <div>
         <div className="flex flex-col gap-2.5 min-h-[108px]">
           <label className="font-bold text-black dark:text-white text-xl transition-all duration-300 ease-in-out">
@@ -124,14 +139,30 @@ export default function WritePost({ post }) {
           <label className="font-bold text-black dark:text-white text-xl transition-all duration-300 ease-in-out">
             Body
           </label>
-          <div className="min-h-[500px]">
+          <div className="rounded-xl outline-[#e4e3e3] outline-1 dark:outline-[#272829] min-h-[500px]">
             <Editor
+              key={theme}
               apiKey={variables.editorApiKey}
               onInit={(_evt, editor) => (editorRef.current = editor)}
-              initialValue="<p>This is the initial content of the editor.</p>"
               init={{
                 height: 500,
                 menubar: false,
+                skin: isDark ? "oxide-dark" : "oxide",
+                content_css: false,
+                body_class: isDark ? "editor-dark" : "editor-light",
+                content_style: `
+                    html, body, .mce-content-body { 
+                      background-color: ${BG} !important; 
+                      color: ${FG} !important; 
+                      font-family: Helvetica, Arial, sans-serif; 
+                      font-size: 14px;
+                    }
+                    p, div, span, strong, em, a, li, h1, h2, h3, h4, h5, h6 { 
+                      color: ${FG} !important; 
+                    }
+                    a { text-decoration: underline; }
+                    img { max-width: 100%; height: auto; }
+                  `,
                 plugins: [
                   "advlist",
                   "autolink",
@@ -157,8 +188,6 @@ export default function WritePost({ post }) {
                   "bold italic forecolor | alignleft aligncenter " +
                   "alignright alignjustify | bullist numlist outdent indent | " +
                   "removeformat | help",
-                content_style:
-                  "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
               }}
               value={watch("body") || ""}
               onEditorChange={(content) => setValue("body", content)}
@@ -181,7 +210,7 @@ export default function WritePost({ post }) {
         <div>
           <PrimaryBtn
             text={
-              isCreating || isUpdating ? "Saving..." : edit ? "Edit" : "Upload"
+              isCreating || isUpdating ? "Saving..." : post ? "Edit" : "Create"
             }
             icon={isCreating || isUpdating ? "" : <LuRocket />}
           />
