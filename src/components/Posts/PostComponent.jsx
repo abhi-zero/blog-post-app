@@ -4,6 +4,9 @@ import { FaPencilAlt } from "react-icons/fa";
 import PrimaryBtn from "../buttons/PrimaryBtn";
 import { useState } from "react";
 import SecondaryBtn from "../buttons/SecondaryBtn";
+import parse from 'html-react-parser';
+import DOMPurify from "dompurify";
+
 
 export default function PostCompoment({
   blogTitle,
@@ -45,7 +48,7 @@ export default function PostCompoment({
         </div>
         <div>
           {/* body */}
-          <p className="first-letter:float-left mt-[50px] mr-3 md:px-[100px] first-letter:font-bold text-black dark:text-white first-letter:text-5xl">{body}</p>
+          <div className="first-letter:float-left mt-[50px] mr-3 md:px-[100px] first-letter:font-bold text-black dark:text-white first-letter:text-5xl">{parse(DOMPurify.sanitize(body))}</div>
         </div>
       </div>
     </div>
