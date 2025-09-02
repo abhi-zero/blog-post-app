@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import PrimaryBtn from "../buttons/PrimaryBtn";
@@ -10,12 +10,21 @@ import { MdDelete } from "react-icons/md";
 import { useDeletePostMutation } from "../../api/postApi";
 import { useDispatch } from "react-redux";
 import { removePost } from "../../features/posts/postsSlice";
+import useFormateDate from "../../hooks/useFormateDate";
+import parse from 'html-react-parser';
+import DOMPurify from "dompurify";
+import Notification from "../Notification";
+import { showNortification } from "../../features/notification/notificationSlice";
 
-export default function Card({ title, body, author, date, link, tags, likes }) {
+export default function Card({ title, body, author, date, tags, likes, id}) {
   const navigate = useNavigate();
   const [optionsOpen, setOptionsOpen] = useState(false);
-  const [deletePost] = useDeletePostMutation();
+  const [deletePost, {isSuccess}] = useDeletePostMutation();
   const dispatch = useDispatch(); 
+
+
+    const {formateDate} = useFormateDate();
+
 
 
   async function handleDelete(id) {
@@ -23,10 +32,10 @@ export default function Card({ title, body, author, date, link, tags, likes }) {
       try {
         await deletePost(id).unwrap();
         dispatch(removePost(id));
-        alert("Post deleted successfully");
+        dispatch(showNortification('Post deleted successfully'))
       } catch (err) {
         console.error("Failed to delete the post: ", err);
-        alert("Failed to delete the post");
+       dispatch(showNortification('Failed to delete the post'))
       }
     }
   }
@@ -46,7 +55,7 @@ export default function Card({ title, body, author, date, link, tags, likes }) {
 
         <div>
           <h3 className="text-sm transition-all duration-500 ease-in-out">
-            by <span>{author}</span> - <span>{date}</span>
+            by <span>{author}</span> - <span>{formateDate(date)}</span>
           </h3>
         </div>
         <div className="flex flex-wrap gap-2.5 min-h-[26px]">
@@ -60,15 +69,15 @@ export default function Card({ title, body, author, date, link, tags, likes }) {
           ))}
         </div>
         <div>
-          <p className="my-[10px] h-[100px] text-[#494949] dark:text-[#aaaaaa] group-hover:underline group-hover:underline-offset-3 line-clamp-4 transition-all duration-700 ease-in-out">
-            {body}
-          </p>
+          <div className="my-[10px] h-[100px] text-[#494949] dark:text-[#aaaaaa] group-hover:underline group-hover:underline-offset-3 line-clamp-4 transition-all duration-700 ease-in-out">
+            {parse(DOMPurify.sanitize(body))}
+          </div>
         </div>
         <div className="flex justify-between items-center">
           <PrimaryBtn
             icon={<IoReader />}
             text={"Read"}
-            onClick={() => navigate(`/post/${link}`)}
+            onClick={() => navigate(`/post/${id}`)}
             style={"1"}
           />
           <div className="flex items-center-safe gap-3">
@@ -95,6 +104,7 @@ export default function Card({ title, body, author, date, link, tags, likes }) {
                     textColorDark={"dark:text-blue-500"}
                     textColorLight={"text-blue-500"}
                     icon={<FaPencilAlt />}
+                    onClick={() => navigate(`/write/${id}`)}
                   />
                 </div>
                 <div>
@@ -102,7 +112,7 @@ export default function Card({ title, body, author, date, link, tags, likes }) {
                     textColorDark={"dark:text-red-600"}
                     textColorLight={"text-red-600"}
                     icon={<MdDelete />}
-                    onClick={() => handleDelete(link)}
+                    onClick={() => handleDelete(id)}
                   />
                 </div>
               </div>
