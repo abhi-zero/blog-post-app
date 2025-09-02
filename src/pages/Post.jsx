@@ -6,12 +6,15 @@ import { useGetPostByIdQuery } from "../api/postApi";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import PrimaryBtn from "../components/buttons/PrimaryBtn";
 import { useNavigate } from "react-router-dom";
+import useFormateDate from "../hooks/useFormateDate";
 
 
 export default function Post() {
     const navigate = useNavigate();
 
   const { id } = useParams();
+
+  const {formateDate} = useFormateDate();
 
 
   const postFromStore = useSelector(state => state.posts?.byId[id]);
@@ -21,14 +24,7 @@ export default function Post() {
   const post = postFromStore || postFromApi;
 
 
-  function formateDate(dataString){
-    const d = new Date(dataString);
-    const day = d.getDay();
-    const month = d.toLocaleString('default', {month : 'short'});
-    const year = d.getFullYear();
 
-    return `${day}, ${month} ${year}`;
-  }
 
   return (
     <div className="mx-auto px-[30px] md:max-w-[80vw] h-[calc(100vh-150px)]">
