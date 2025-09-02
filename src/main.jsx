@@ -24,6 +24,9 @@ const router = createBrowserRouter([
       {
         path: "/write",
         element: <Write />,
+      },{
+        path: "/write/:id",
+        element : <Write />
       },
       {
         path: "/profile",
