@@ -40,7 +40,7 @@ export default function Home() {
   if (isError) return <h1>{error}</h1>;
 
   return (
-    <div className="flex flex-col items-center-safe gap-[50px] min-h-screen overflow-x-hidden">
+    <div className="flex flex-col items-center-safe gap-[50px] pb-[50px] min-h-screen overflow-x-hidden">
       <div>
         <FollowPeopleSection />
       </div>
@@ -55,15 +55,15 @@ export default function Home() {
       }
       <ul className="gap-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 grid-flow-row px-[20px] max-w-[1300px]">
         {allPosts.map((post) => (
-          <li className="" key={post.title}>
+          <li className="" key={post.id}>
             <Card
+             id={post.id}
               title={post.title}
               body={post.body}
-              tags={post.tags}
-              author={post.author.name}
+              tags={post.tags || []}
+              author={post?.author?.name}
               date={post.date}
               likes={post.likes}
-              link={post.id}
             />
           </li>
         ))}
