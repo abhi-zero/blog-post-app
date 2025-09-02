@@ -1,7 +1,6 @@
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
 import { FaPencilAlt } from "react-icons/fa";
-import PrimaryBtn from "../buttons/PrimaryBtn";
 import { useState } from "react";
 import SecondaryBtn from "../buttons/SecondaryBtn";
 import parse from 'html-react-parser';
