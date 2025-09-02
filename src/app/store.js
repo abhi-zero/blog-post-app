@@ -4,6 +4,7 @@ import { postApi } from "../api/postApi";
 import { personApi } from "../api/personApi";
 import postsReducer  from "../features/posts/postsSlice"
 import themeReducer from "../features/theme/themeSlice"
+import notificaionReducer  from "../features/notification/notificationSlice";
 
 
 export const store = configureStore({
@@ -11,7 +12,8 @@ export const store = configureStore({
         [postApi.reducerPath] : postApi.reducer,
         [personApi.reducerPath] : personApi.reducer,
         posts : postsReducer, 
-        theme : themeReducer
+        theme : themeReducer,
+        notification : notificaionReducer
     },
     middleware : (getDefaultMiddleware) => 
         getDefaultMiddleware()
