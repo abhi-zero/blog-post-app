@@ -17,21 +17,20 @@
       "likes": 10
     },
     {
-      "id": 2,
-      "title": "React Journey",
-      "slug": "react-journey",
+      "title": "React Journey day1",
       "body": "<p>Started learning React today, and honestly it feels amazing. JSX looked strange at first, but once I wrote my first functional component it started to click. My plan is to build small projects like a to-do app, a weather app, and then eventually move to something bigger. Consistency will be the key to mastering React.</p>",
-      "author": {
-        "id": 102,
-        "name": "Abhi"
-      },
-      "date": "2025-08-21T14:22:10Z",
+      "slug": "react-journey-day1",
       "tags": [
         "react",
         "frontend",
         "javascript"
       ],
-      "likes": 22
+      "author": {
+        "id": "99ff7ae7-20ac-4b1d-be5a-2c92c50015d0",
+        "name": "Abhi"
+      },
+      "date": "2025-09-02T13:40:12.176Z",
+      "id": 2
     },
     {
       "id": 3,
@@ -118,7 +117,23 @@
       ],
       "likes": 25
     },
-    {},
+    {
+      "id": 8,
+      "title": "Git Branching Guide",
+      "slug": "git-branching-guide",
+      "body": "<p>I finally learned how to use Git branches effectively. Before, I used to commit everything directly to main, which was messy and risky. Now I know how to create feature branches, merge them with pull requests, and keep main clean. It makes collaboration and personal projects much easier to manage.</p>",
+      "author": {
+        "id": 108,
+        "name": "Emma"
+      },
+      "date": "2025-08-27T08:10:50Z",
+      "tags": [
+        "git",
+        "version-control",
+        "workflow"
+      ],
+      "likes": 40
+    },
     {
       "id": 9,
       "title": "Authentication Basics",
@@ -393,14 +408,18 @@
     },
     {
       "title": "how to add css in html ",
-      "body": "<p>You can add css html via link&nbsp;</p>",
+      "body": "<p>You can add css html via link. Best way to use css in make css in seprate file. And place css file its own folder</p>",
       "slug": "how-to-add-css-in-html-js",
       "tags": [
         "css",
         "html",
         "add css to html"
       ],
-      "date": "2025-09-02T07:58:34.505Z",
+      "author": {
+        "id": "3d619cb4-933d-4b8e-8377-0515c7f51ee1",
+        "name": "Abhi"
+      },
+      "date": "2025-09-02T13:00:05.807Z",
       "id": "9ed35e36-92c7-4771-bc40-a599d4f13dc6"
     }
   ]
