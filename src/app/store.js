@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { postApi } from "../api/postApi";
-import {authApi} from '../api/authApi'
+import { authApi } from '../api/authApi'
 import postsReducer  from "../features/posts/postsSlice"
 import themeReducer from "../features/theme/themeSlice"
 import notificaionReducer  from "../features/notification/notificationSlice";
