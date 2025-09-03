@@ -6,6 +6,7 @@ const variables = {
     projectId :  import.meta.env.VITE_APPWRITE_PROJECTID_KEY,
     databaseId :  import.meta.env.VITE_APPWRITE_DATABASE,
     postsId :  import.meta.env.VITE_APPWRITE_POSTS,
+    profileId :  import.meta.env.VITE_APPWRITE_PROFILE
 }
 
 export default variables
