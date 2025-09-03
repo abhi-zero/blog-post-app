@@ -1,4 +1,4 @@
-import {Client,Database, Account } from 'appwrite'
+import { Client,Databases, Account } from 'appwrite'
 import variables from '../../variables'
 
 const client = new Client()
@@ -6,8 +6,8 @@ const client = new Client()
 .setProject(variables.projectId)
 
 
-export const account = Account(client);
+export const account = new Account(client);
 
-export const database = Database(client);
+export const database =new Databases(client);
 
 export default client;
