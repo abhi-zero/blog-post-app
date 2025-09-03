@@ -1,8 +1,8 @@
 import { createApi, fakeBaseQuery } from "@reduxjs/toolkit/query/react";
-import { account } from "appwrite";
+import { account } from '../lib/appwriteClient';
 
 
-const authApi = createApi({
+export const authApi = createApi({
     reducerPath: 'authApi',
     baseQuery: fakeBaseQuery(),
     tagTypes: ['Auth'],
