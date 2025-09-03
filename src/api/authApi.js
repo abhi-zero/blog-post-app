@@ -1,10 +1,10 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fakeBaseQuery } from "@reduxjs/toolkit/query/react";
 import { account } from "appwrite";
 
 
 const authApi = createApi({
     reducerPath: 'authApi',
-    baseQuery: fetchBaseQuery(),
+    baseQuery: fakeBaseQuery(),
     tagTypes: ['Auth'],
     endpoints: (builder) => ({
         // regiter (email + password)

@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fakeBaseQuery } from "@reduxjs/toolkit/query/react";
 import variables from "../../variables";
 import { database } from "../lib/appwriteClient";
 
@@ -8,7 +8,7 @@ const POSTS_COLLECTION_ID = variables.postsId;
 
 export const postApi = createApi({
     reducerPath: 'postApi',
-    baseQuery: fetchBaseQuery(),
+    baseQuery: fakeBaseQuery(),
     tagTypes: ['Post'],
     endpoints: (builder) => ({
         getPosts: builder.query({
