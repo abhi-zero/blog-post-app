@@ -12,7 +12,7 @@ export const authApi = createApi({
       async queryFn({ email, password, name }) {
         try {
           await account.create('unique()', email, password, name);
-          await account.createEmailSession(email, password);
+          await account.createEmailPasswordSession({ email, password });
           const user = await account.get();
           return { data: user }
         } catch (error) {
@@ -24,7 +24,7 @@ export const authApi = createApi({
     login: builder.mutation({
       async queryFn({ email, password }) {
         try {
-          await account.createEmailSession(email, password);
+          await account.createEmailPasswordSession({ email, password });
           const user = await account.get();
           return { data: user }
         } catch (error) {
