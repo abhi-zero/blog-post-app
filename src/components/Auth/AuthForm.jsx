@@ -9,12 +9,16 @@ import PrimaryBtn from "../buttons/PrimaryBtn";
 import SecondaryBtn from "../buttons/SecondaryBtn";
 import { TiEye } from "react-icons/ti";
 import { LuEyeClosed } from "react-icons/lu";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { showNortification } from "../../features/notification/notificationSlice";
 
 export default function AuthForm() {
   const [mode, setMode] = useState("login");
   const [passVisible, setPassVisible] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -31,10 +35,17 @@ export default function AuthForm() {
   const { data: currentUser, refetch } = useGetCurrentUserQuery();
 
   useEffect(() => {
-    if (registerSuccess) {
+    if (registerSuccess || loginSuccess) {
       refetch();
     }
-  }, [refetch, registerUser]);
+  }, [refetch, registerSuccess, loginSuccess]);
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/profile");
+      dispatch(showNortification(`Logged in as ${currentUser.name}`));
+    }
+  },[currentUser, navigate, dispatch]);
 
   async function onSubmit(data) {
     try {
@@ -56,7 +67,9 @@ export default function AuthForm() {
   return (
     <div className="flex flex-col justify-center items-center-safe gap-5 px-[20px]">
       <div>
-        <h1 className="font-medium text-[black] dark:text-[white] text-3xl transition-all duration-300 ease-in-out">{mode === "login" ? "Login" : "Sign Up"}</h1>
+        <h1 className="font-medium text-[black] dark:text-[white] text-3xl transition-all duration-300 ease-in-out">
+          {mode === "login" ? "Login" : "Sign Up"}
+        </h1>
       </div>
 
       {/* From */}
