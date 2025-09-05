@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { navLinks } from "../../content";
+import { getNavLinks } from "../../content";
 import { GiHamburgerMenu } from "react-icons/gi";
 import ThemeToggle from "./ThemeToggle";
 import { useSelector } from "react-redux";
 
+import {useGetCurrentUserQuery} from '../../api/authApi'
+
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-   const theme = useSelector(state => state.theme.theme)
-useEffect(() => {
 
-  console.log(theme);
-  
-},[theme])
+  const {data: user} = useGetCurrentUserQuery();
+  let navLinks = getNavLinks(user)
+   useEffect(()=> {
+    navLinks = getNavLinks(user)
+   }, [user])
   return (
     <header className="top-0 right-0 left-0 z-50 fixed md:px-[30px] lg:px-[150px] md:py-[10px] w-[100vw]">
       <nav className="rounded-2xl">
@@ -24,6 +27,8 @@ useEffect(() => {
           <div className="hidden md:block">
             <ul className="flex gap-10">
               {navLinks.map((link) => (
+
+              
                 <li
                   key={link.name}
                   className="relative px-2.5 py-1.5 overflow-hidden"
