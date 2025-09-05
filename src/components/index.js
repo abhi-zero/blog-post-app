@@ -5,6 +5,7 @@ import PostComponent from "./Posts/PostComponent";
 import WritePost from "./Posts/WritePost";
 import PostComponentPh from "./PlaceHolders/PostComponentPh";
 import Notification from "./Notification";
+import AuthForm from "./Auth/AuthForm";
 
 
 
@@ -16,5 +17,6 @@ export {
     PostComponent,
     WritePost,
     PostComponentPh,
-    Notification
+    Notification,
+    AuthForm
 }
