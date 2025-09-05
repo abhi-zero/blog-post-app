@@ -11,7 +11,7 @@ function App() {
    
     <main className='pt-[150px]'>
       <Outlet />
-      
+
     </main>
      <Notification />
    </div>
