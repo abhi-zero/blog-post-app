@@ -1,5 +1,4 @@
-
-import {Navbar, Notification, } from './components/index'
+import {Navbar, Notification} from './components/index'
 import { Outlet } from "react-router";
 
 
