@@ -23,7 +23,11 @@ export const profileApi = createApi({
                             Query.equal('authId',authId)
                         ]
                     );
-                    return {data : response.documents[0]}
+                   if(response.documents.length > 0){
+                     return {data : response.documents[0]}
+                   }else{
+                    return {error: {message : "Profile not found"}}
+                   }
                 } catch (error) {
                     return {error}
                 }
