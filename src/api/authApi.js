@@ -1,6 +1,7 @@
 import { createApi, fakeBaseQuery } from "@reduxjs/toolkit/query/react";
-import { account } from '../lib/appwriteClient';
+import { account,database } from '../lib/appwriteClient';
 import variables from "../../variables";
+import { Query } from "appwrite";
 
 
 export const authApi = createApi({
@@ -18,7 +19,7 @@ export const authApi = createApi({
 
           const profileDoc = await database.createDocument(
             variables.databaseId,
-            variables.projectId,
+            variables.profileId,
             'unique()',
             {
               authId : user.$id,
@@ -40,7 +41,16 @@ export const authApi = createApi({
         try {
           await account.createEmailPasswordSession({ email, password });
           const user = await account.get();
-          return { data: user }
+          const profileList = await database.listDocuments(
+            variables.databaseId,
+            variables.profileId,
+            [
+              Query.equal('autId', user.$id)
+            ]
+          );
+
+          const profile = profileList.documents[0] || null
+          return { data: {user, profile }}
         } catch (error) {
           return { error: { message: error.message, code: error.code } };
         }
