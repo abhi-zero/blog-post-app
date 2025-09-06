@@ -47,7 +47,7 @@ export default function AppRoutes() {
           path: "/profile",
           element:  (
             <ProtectRoute user={user}>
-              <Auth />
+              <Profile />
             </ProtectRoute>
           ), // protect Profile route
         },
