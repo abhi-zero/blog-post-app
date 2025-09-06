@@ -197,7 +197,7 @@ export default function AuthForm() {
 
         <div className="mt-[20px]">
           <div>
-            <p className="text-center">
+            <p className="text-black dark:text-white text-center">
               {mode === "login"
                 ? "Don't have an account?"
                 : "Already have an account?"}{" "}
