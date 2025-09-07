@@ -6,7 +6,7 @@ import WritePost from "./Posts/WritePost";
 import PostComponentPh from "./PlaceHolders/PostComponentPh";
 import Notification from "./Notification";
 import AuthForm from "./Auth/AuthForm";
-
+import ProfileContainer from "./Profile/ProfileContainer";
 
 
 
@@ -18,5 +18,6 @@ export {
     WritePost,
     PostComponentPh,
     Notification,
-    AuthForm
+    AuthForm,
+    ProfileContainer
 }
